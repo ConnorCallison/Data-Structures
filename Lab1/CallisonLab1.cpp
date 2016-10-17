@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+//This program creates a caeser cypher on an input string and given offset.
 
 char encode_character(char character, int offset)
 {
