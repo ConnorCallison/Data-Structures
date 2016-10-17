@@ -94,6 +94,30 @@
 
         }
 
+        const T& getElementAt(int location)
+        {
+            if(location < _logical_size)
+            {
+                return _data[location];
+            }
+            else
+            {
+                //Add exception handling
+            }
+
+        }
+        void setElementAt(const T &item, int location)
+        {
+            if(location < _logical_size)
+            {
+                _data[location] = item;
+            }
+            else
+            {
+                //Add exception handling
+            }
+        }
+
 
     };
 
