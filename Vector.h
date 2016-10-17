@@ -18,7 +18,7 @@
         virtual void requestResize(int new_size)
         {
             //Allocate space for new array
-            T *new_data = new T{new_size};
+            T *new_data = new T[new_size];
 
             //Figure out which is smaller: logical size or new size
 
@@ -32,7 +32,7 @@
             //Copy curernt data into new space
             for (int i = 0; i < _logical_size; i++)
             {
-
+                new_data[i] = _data[i];
             }
             //assume ownership of new array
             delete[] _data;
@@ -84,11 +84,14 @@
         const T& pop()
         {
             //grab last value
-            const T& last = _data[_logical_size - 1];
+            checkSize();
+            const T& last = _data[_logical_size-1];
 
             //make it look like the vector is smaller
             _logical_size--;
-            checkSize();
+
+            return last;
+
         }
 
 
