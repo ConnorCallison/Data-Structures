@@ -68,6 +68,29 @@
             _data = new T{_physical_size};
         }
 
+        //Returns logical size of vector
+        const int& getSize() const
+        {
+            return _logical_size;
+        }
+
+        void push(const T& item)
+        {
+            checkSize();
+            _data[_logical_size] = item;
+            _logical_size++;
+        }
+
+        const T& pop()
+        {
+            //grab last value
+            const T& last = _data[_logical_size - 1];
+
+            //make it look like the vector is smaller
+            _logical_size--;
+            checkSize();
+        }
+
 
     };
 
